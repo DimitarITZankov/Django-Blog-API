@@ -22,3 +22,10 @@ class CreateUserSerializer(serializers.ModelSerializer):
 			instance.set_password(password)
 			instance.save()
 		return super().update(instance,validated_data)
+
+
+class UserPostSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = models.Posts
+		fields = ('id','user_key','title','content','created_on')
+		extra_kwargs = {'user_key':{'read_only':True}}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,PermissionsMixin,BaseUserManager
+from django.conf import settings
 
 
 class BlogAPIProfilesManager(BaseUserManager):
@@ -28,7 +29,7 @@ class BlogAPIProfiles(AbstractBaseUser,PermissionsMixin):
 	is_active = models.BooleanField(default=True)
 
 	objects = BlogAPIProfilesManager()
-	
+
 	USERNAME_FIELD = 'username' 
 	REQUIRED_FIELDS = ['first_name','last_name','email']
 
@@ -40,3 +41,13 @@ class BlogAPIProfiles(AbstractBaseUser,PermissionsMixin):
 
 	def __str__(self):
 		return self.email
+
+
+class Posts(models.Model):
+	user_key = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+	title = models.CharField(max_length=50)
+	content = models.TextField(max_length=500)
+	created_on = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return self.title
