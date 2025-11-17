@@ -34,5 +34,32 @@ Supports **user registration**, **token-based authentication**, and basic blog m
 ```bash
 git clone https://github.com/DimitarITZankov/Django-Blog-API.git
 cd Django-Blog-API
+```
 ---
 ### 2. Create virtual environment
+```bash
+python3 -m venv env
+source env/bin/activate
+```
+---
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+---
+### 4. Apply migrations
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+---
+### 5.Create superuser (optional)
+```bash
+python manage.py createsuperuser
+```
+
+---
+### 6. Run the development server
+```bash
+python manage.py runserver
+```
