@@ -27,6 +27,8 @@ class BlogAPIProfiles(AbstractBaseUser,PermissionsMixin):
 	is_staff = models.BooleanField(default=False)
 	is_active = models.BooleanField(default=True)
 
+	objects = BlogAPIProfilesManager()
+	
 	USERNAME_FIELD = 'username' 
 	REQUIRED_FIELDS = ['first_name','last_name','email']
 
