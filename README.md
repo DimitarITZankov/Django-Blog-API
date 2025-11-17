@@ -34,3 +34,5 @@ Supports **user registration**, **token-based authentication**, and basic blog m
 ```bash
 git clone https://github.com/DimitarITZankov/Django-Blog-API.git
 cd Django-Blog-API
+---
+### 2. Create virtual environment
